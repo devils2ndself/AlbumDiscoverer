@@ -1,0 +1,35 @@
+<h1>Favourites</h1>
+<div *ngIf="favourites">
+    <h3>Here's all the tracks you marked as your Favourites.</h3>
+    <p> Click the &nbsp;<mat-icon [inline]="true">music_off</mat-icon>&nbsp; icon to <strong>remove</strong> a song from your list </p>
+
+    <br />
+
+    <mat-list>
+
+        <!-- single "favourite" card -->
+        <mat-list-item *ngFor="let favourite of favourites">
+            <mat-icon mat-list-icon (click)="removeFromFavourites(favourite.id)">music_off</mat-icon>
+            <div mat-line>
+                <mat-card>
+                    <mat-card-content><strong>{{favourite.name}}</strong> - {{(favourite.duration_ms / 60000).toFixed(2)}}<br /><br />
+                        Artist(s): 
+                        <span *ngFor="let artist of favourite.artists"><a [routerLink]="['/artist/'+artist.id]">{{artist.name}}</a>&nbsp;&nbsp;</span>
+                        
+                        <br />
+
+                        Album: <a [routerLink]="['/album/'+favourite.album.id]"> {{favourite.album.name}}</a><br />
+                        <div *ngIf="favourite.preview_url"><br /><audio controls [src]="favourite.preview_url"></audio></div>
+                    </mat-card-content>
+                    
+                </mat-card>
+            </div>
+        </mat-list-item>
+        <!-- -->
+
+    </mat-list>
+</div>
+<div *ngIf="!favourites">
+    <h2>Nothing here yet!</h2>
+    <p>Click the <mat-icon className="example-icon" [inline]="true">library_music</mat-icon> icon to <b>add</b> track to your favourites when looking through an album!</p>
+</div>
