@@ -15,6 +15,11 @@
                 <input matInput type="password" placeholder="Password" name="password2" required [(ngModel)]='registerUser.password2'>
                 <mat-error>Please provide a valid password</mat-error>
             </mat-form-field><br />
+            <button mat-raised-button color="accent" routerLink="/login">
+                <mat-icon>account_box</mat-icon>
+                <span>&nbsp;&nbsp;&nbsp;Sign In</span>
+            </button>
+              &nbsp;&nbsp;
             <button mat-raised-button color="primary" type="submit" [disabled]="loading">
                 <mat-icon>account_box</mat-icon>
                 <span *ngIf="!this.loading">&nbsp;&nbsp;&nbsp;Register</span>

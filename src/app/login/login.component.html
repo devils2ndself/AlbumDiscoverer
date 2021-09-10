@@ -1,7 +1,7 @@
 <mat-card>
     <mat-card-content>
       <form (ngSubmit)="onSubmit()">
-        <h2>Log In!</h2>
+        <h2>Log In</h2>
         <mat-error>{{warning}}</mat-error><br />
         <mat-form-field class="full-width-input">
           <input matInput placeholder="User Name" name="username" required autofocus [(ngModel)]='user.userName'>
@@ -19,7 +19,7 @@
         &nbsp;&nbsp;
         <button mat-raised-button color="primary" routerLink="/register">
           <mat-icon>account_box</mat-icon>
-          <span>&nbsp;&nbsp;&nbsp;Sign Up</span>
+          <span>&nbsp;&nbsp;&nbsp;Register</span>
         </button>
       </form>
     </mat-card-content> 
